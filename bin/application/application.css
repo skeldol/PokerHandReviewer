@@ -1,0 +1,16 @@
+/* JavaFX CSS -https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html */
+.playervbox {
+	-fx-background-color: white;
+	-fx-border-color: black;
+}
+
+.label {
+		-fx-text-alignment: center
+}
+
+.card {
+	-fx-background-color: white;
+	-fx-border-color: black;
+	-fx-font-size: 26;
+}
+

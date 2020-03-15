@@ -7,13 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.pokersimples.bo.Hand;
+import com.pokersimples.bo.Player;
 import com.pokersimples.parser.pokerstars.PokerStarsParser;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 
 public class PokerHandReviewerController {
 	private Hand hand = null;
@@ -30,7 +28,7 @@ public class PokerHandReviewerController {
 	@FXML
 	public String getPlayer1HoleCard2() {return getPlayerHoleCard2(1);}	
 	@FXML
-	public String getPlayer1HoleCard2Colour() {return getPlayerHoleCard2Colour(2);}	
+	public String getPlayer1HoleCard2Colour() {return getPlayerHoleCard2Colour(1);}	
 	
 	@FXML
 	public String getPlayer2Name() {return getPlayerName(2);}
@@ -39,8 +37,11 @@ public class PokerHandReviewerController {
 	@FXML
 	public String getPlayer2HoleCard1() {return getPlayerHoleCard1(2);}	
 	@FXML
-	public String getPlayer2HoleCard2() {return getPlayerHoleCard1(2);}		
-	
+	public String getPlayer2HoleCard1Colour() {return getPlayerHoleCard1Colour(2);}	
+	@FXML
+	public String getPlayer2HoleCard2() {return getPlayerHoleCard2(2);}		
+	@FXML
+	public String getPlayer2HoleCard2Colour() {return getPlayerHoleCard2Colour(2);}	
 	
 	public PokerHandReviewerController() {
 		System.out.println(System.getProperty("user.dir"));
@@ -108,12 +109,22 @@ public class PokerHandReviewerController {
 		}
 	}	
 	public String getPlayerHoleCard2(int pSeatNumber) {
-		if(hand != null && hand.getPlayer(pSeatNumber) != null && hand.getPlayer(pSeatNumber).getHoleCard2() != null) {
+		if(getPlayer(pSeatNumber) != null && hand.getPlayer(pSeatNumber).getHoleCard2() != null) {
 			return hand.getPlayer(pSeatNumber).getHoleCard2().toString();
 		} else {
 			return null;
 		}
 	}	
+	
+	
+	
+	 Player getPlayer(int pSeatNumber) {
+		if(hand != null && hand.getPlayer(pSeatNumber) != null) {
+			return hand.getPlayer(pSeatNumber);
+		} else {
+			return null;
+		}
+	}
 	
 	public String getPlayerHoleCard1Colour(int pSeatNumber) {
 		if(getPlayerHoleCard1(pSeatNumber) != null) {

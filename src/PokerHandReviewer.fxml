@@ -3,16 +3,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="587.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PokerHandReviewerController">
    <children>
-      <Ellipse fill="DODGERBLUE" layoutX="531.0" layoutY="270.0" radiusX="492.0" radiusY="252.0" stroke="BLACK" strokeType="INSIDE" />
+      <Ellipse fill="beige" layoutX="531.0" layoutY="270.0" radiusX="492.0" radiusY="252.0" stroke="BLACK" strokeType="INSIDE" />
       <Button layoutX="137.0" layoutY="528.0" mnemonicParsing="false" text="NextButton" />
       <Button layoutX="42.0" layoutY="528.0" mnemonicParsing="false" text="Previous" />
-      <Pane layoutX="126.0" layoutY="14.0" prefHeight="154.0" prefWidth="176.0">
+      <Pane layoutX="126.0" layoutY="14.0" prefHeight="185.0" prefWidth="176.0">
          <children>
             <Pane layoutX="25.0" layoutY="14.0" prefHeight="77.0" prefWidth="151.0">
                <children>
@@ -22,8 +24,9 @@
             </Pane>
             <VBox layoutX="31.0" layoutY="100.0" prefHeight="47.0" prefWidth="140.0" styleClass="playervbox">
                <children>
-                  <Label prefHeight="17.0" prefWidth="140.0" text="test name" textAlignment="CENTER" />
-                  <Label prefHeight="17.0" prefWidth="136.0" text="test chips" textAlignment="JUSTIFY" />
+                  <Label prefHeight="17.0" prefWidth="140.0" text="${controller.player1Name}" textAlignment="CENTER" />
+                  <Label prefHeight="17.0" prefWidth="136.0" text="${controller.player1Chips}" textAlignment="JUSTIFY" />
+                  <Label prefHeight="17.0" prefWidth="136.0" text="${controller.player1Action}" textAlignment="JUSTIFY" />
                </children>
             </VBox>
          </children>
@@ -38,11 +41,94 @@
             </Pane>
             <VBox layoutX="31.0" layoutY="100.0" prefHeight="47.0" prefWidth="140.0" styleClass="playervbox">
                <children>
-                  <Label prefHeight="17.0" prefWidth="140.0" text="test name" textAlignment="CENTER" />
-                  <Label prefHeight="17.0" prefWidth="136.0" text="test chips" textAlignment="JUSTIFY" />
+                  <Label prefHeight="17.0" prefWidth="140.0" text="${controller.player2Name}" textAlignment="CENTER" />
+                  <Label prefHeight="17.0" prefWidth="136.0" text="${controller.player2Chips}" textAlignment="JUSTIFY" />
                </children>
             </VBox>
          </children>
       </Pane>
+      <Pane layoutX="716.0" layoutY="29.0" prefHeight="154.0" prefWidth="176.0">
+         <children>
+            <Pane layoutX="25.0" layoutY="14.0" prefHeight="77.0" prefWidth="151.0">
+               <children>
+                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player3HoleCard1Colour}" styleClass="card" text="${controller.player3HoleCard1}" />
+                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player3HoleCard2Colour}" styleClass="card" text="${controller.player3HoleCard2}" />
+               </children>
+            </Pane>
+            <VBox layoutX="31.0" layoutY="100.0" prefHeight="47.0" prefWidth="140.0" styleClass="playervbox">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="140.0" text="${controller.player3Name}" textAlignment="CENTER" />
+                  <Label prefHeight="17.0" prefWidth="136.0" text="${controller.player3Chips}" textAlignment="JUSTIFY" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutX="116.0" layoutY="357.0" prefHeight="154.0" prefWidth="176.0">
+         <children>
+            <Pane layoutX="25.0" layoutY="14.0" prefHeight="77.0" prefWidth="151.0">
+               <children>
+                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player4HoleCard1Colour}" styleClass="card" text="${controller.player4HoleCard1}" />
+                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player4HoleCard2Colour}" styleClass="card" text="${controller.player4HoleCard2}" />
+               </children>
+            </Pane>
+            <VBox layoutX="31.0" layoutY="100.0" prefHeight="47.0" prefWidth="140.0" styleClass="playervbox">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="140.0" text="${controller.player4Name}" textAlignment="CENTER" />
+                  <Label prefHeight="17.0" prefWidth="136.0" text="${controller.player4Chips}" textAlignment="JUSTIFY" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutX="429.0" layoutY="368.0" prefHeight="154.0" prefWidth="176.0">
+         <children>
+            <Pane layoutX="25.0" layoutY="14.0" prefHeight="77.0" prefWidth="151.0">
+               <children>
+                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player5HoleCard1Colour}" styleClass="card" text="${controller.player5HoleCard1}" />
+                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player5HoleCard2Colour}" styleClass="card" text="${controller.player5HoleCard2}" />
+               </children>
+            </Pane>
+            <VBox layoutX="31.0" layoutY="100.0" prefHeight="47.0" prefWidth="140.0" styleClass="playervbox">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="140.0" text="${controller.player5Name}" textAlignment="CENTER" />
+                  <Label prefHeight="17.0" prefWidth="136.0" text="${controller.player5Chips}" textAlignment="JUSTIFY" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutX="737.0" layoutY="357.0" prefHeight="154.0" prefWidth="176.0">
+         <children>
+            <Pane layoutX="25.0" layoutY="14.0" prefHeight="77.0" prefWidth="151.0">
+               <children>
+                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player6HoleCard1Colour}" styleClass="card" text="${controller.player6HoleCard1}" />
+                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player6HoleCard2Colour}" styleClass="card" text="${controller.player6HoleCard2}" />
+               </children>
+            </Pane>
+            <VBox layoutX="31.0" layoutY="100.0" prefHeight="47.0" prefWidth="140.0" styleClass="playervbox">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="140.0" text="${controller.player6Name}" textAlignment="CENTER" />
+                  <Label prefHeight="17.0" prefWidth="136.0" text="${controller.player6Chips}" textAlignment="JUSTIFY" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <HBox layoutX="361.0" layoutY="226.0" prefHeight="89.0" prefWidth="394.0">
+         <children>
+            <Label prefHeight="69.0" prefWidth="61.0" style="${controller.player2HoleCard2Colour}" styleClass="card" text="${controller.player2HoleCard2}" />
+            <Label prefHeight="69.0" prefWidth="61.0" style="${controller.player2HoleCard2Colour}" styleClass="card" text="${controller.player2HoleCard2}" />
+            <Label prefHeight="69.0" prefWidth="61.0" style="${controller.player2HoleCard2Colour}" styleClass="card" text="${controller.player2HoleCard2}" />
+            <Label prefHeight="69.0" prefWidth="61.0" style="${controller.player2HoleCard2Colour}" styleClass="card" text="${controller.player2HoleCard2}" />
+            <Label prefHeight="69.0" prefWidth="61.0" style="${controller.player2HoleCard2Colour}" styleClass="card" text="${controller.player2HoleCard2}" />
+         </children>
+      </HBox>
+      <Label layoutX="146.0" layoutY="340.0" prefHeight="17.0" prefWidth="136.0" text="${controller.player1Chips}" textAlignment="JUSTIFY" />
+      <Label layoutX="463.0" layoutY="349.0" prefHeight="17.0" prefWidth="136.0" text="${controller.player1Chips}" textAlignment="JUSTIFY" />
+      <Label layoutX="777.0" layoutY="341.0" prefHeight="17.0" prefWidth="136.0" text="${controller.player1Chips}" textAlignment="JUSTIFY" />
+      <Label layoutX="748.0" layoutY="183.0" prefHeight="17.0" prefWidth="136.0" text="${controller.player1Chips}" textAlignment="JUSTIFY" />
+      <Label layoutX="449.0" layoutY="175.0" prefHeight="17.0" prefWidth="136.0" text="${controller.player1Chips}" textAlignment="JUSTIFY" />
+      <Label layoutX="449.0" layoutY="315.0" prefHeight="31.0" prefWidth="136.0" text="${controller.player1Chips}" textAlignment="JUSTIFY">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

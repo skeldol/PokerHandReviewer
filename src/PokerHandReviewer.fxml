@@ -12,7 +12,7 @@
 <AnchorPane prefHeight="587.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PokerHandReviewerController">
    <children>
       <Ellipse fill="beige" layoutX="531.0" layoutY="270.0" radiusX="492.0" radiusY="252.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button layoutX="137.0" layoutY="528.0" mnemonicParsing="false" text="NextButton" />
+      <Button layoutX="137.0" layoutY="528.0" mnemonicParsing="false" onAction="#next" text="NextButton" />
       <Button layoutX="42.0" layoutY="528.0" mnemonicParsing="false" text="Previous" />
       <Pane layoutX="126.0" layoutY="14.0" prefHeight="185.0" prefWidth="176.0">
          <children>
@@ -35,14 +35,14 @@
          <children>
             <Pane layoutX="25.0" layoutY="14.0" prefHeight="77.0" prefWidth="151.0">
                <children>
-                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player2HoleCard1Colour}" styleClass="card" text="${controller.player2HoleCard1}" />
-                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player2HoleCard2Colour}" styleClass="card" text="${controller.player2HoleCard2}" />
+                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player2.holeCard1Colour}" styleClass="card" text="${controller.player2.holeCard1}" />
+                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player2.holeCard2Colour}" styleClass="card" text="${controller.player2.holeCard2}" />
                </children>
             </Pane>
             <VBox layoutX="31.0" layoutY="100.0" prefHeight="47.0" prefWidth="140.0" styleClass="playervbox">
                <children>
-                  <Label prefHeight="17.0" prefWidth="140.0" text="${controller.player2Name}" textAlignment="CENTER" />
-                  <Label prefHeight="17.0" prefWidth="136.0" text="${controller.player2Chips}" textAlignment="JUSTIFY" />
+                  <Label prefHeight="17.0" prefWidth="140.0" text="${controller.player2.name}" textAlignment="CENTER" />
+                  <Label prefHeight="17.0" prefWidth="136.0" text="${controller.player2.currentChipCount}" textAlignment="JUSTIFY" />
                </children>
             </VBox>
          </children>
@@ -100,7 +100,7 @@
             <Pane layoutX="25.0" layoutY="14.0" prefHeight="77.0" prefWidth="151.0">
                <children>
                   <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player6HoleCard1Colour}" styleClass="card" text="${controller.player6HoleCard1}" />
-                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player6HoleCard2Colour}" styleClass="card" text="${controller.player6HoleCard2}" />
+                  <Label fx:id="lblLabel" layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player6HoleCard2Colour}" styleClass="card" text="${controller.player6HoleCard2}" />
                </children>
             </Pane>
             <VBox layoutX="31.0" layoutY="100.0" prefHeight="47.0" prefWidth="140.0" styleClass="playervbox">

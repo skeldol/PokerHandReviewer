@@ -3,101 +3,130 @@ package application;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import com.pokersimples.bo.Hand;
 import com.pokersimples.bo.Player;
 import com.pokersimples.parser.pokerstars.PokerStarsParser;
 
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 
-public class PokerHandReviewerController {
+public class PokerHandReviewerController implements Initializable {
 	private Hand hand = null;
 	
+	private int actionNumber = 0;
 	
-	@FXML
+	private UIPlayer player2;
+	
 	public String getPlayer1Name() {return getPlayerName(1);}
-	@FXML
+	
 	public String getPlayer1Chips() {return getPlayerChips(1);}
-	@FXML
+	
 	public String getPlayer1Action() {return getPlayerAction(1);}
-	@FXML
+	
 	public String getPlayer1HoleCard1() {return getPlayerHoleCard1(1);}	
-	@FXML
+	
 	public String getPlayer1HoleCard1Colour() {return getPlayerHoleCard1Colour(1);}	
-	@FXML
+	
 	public String getPlayer1HoleCard2() {return getPlayerHoleCard2(1);}	
-	@FXML
+	
 	public String getPlayer1HoleCard2Colour() {return getPlayerHoleCard2Colour(1);}	
 	
-	@FXML
-	public String getPlayer2Name() {return getPlayerName(2);}
-	@FXML
-	public String getPlayer2Chips() {return getPlayerChips(2);}
-	@FXML
-	public String getPlayer2HoleCard1() {return getPlayerHoleCard1(2);}	
-	@FXML
-	public String getPlayer2HoleCard1Colour() {return getPlayerHoleCard1Colour(2);}	
-	@FXML
-	public String getPlayer2HoleCard2() {return getPlayerHoleCard2(2);}		
-	@FXML
-	public String getPlayer2HoleCard2Colour() {return getPlayerHoleCard2Colour(2);}	
 	
-	@FXML
+  
+	
+	
+	public UIPlayer getPlayer2() {
+		return player2;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	public String getPlayer3Name() {return getPlayerName(3);}
-	@FXML
+	
 	public String getPlayer3Chips() {return getPlayerChips(3);}
-	@FXML
+	
 	public String getPlayer3HoleCard1() {return getPlayerHoleCard1(3);}	
-	@FXML
+	
 	public String getPlayer3HoleCard1Colour() {return getPlayerHoleCard1Colour(3);}	
-	@FXML
+	
 	public String getPlayer3HoleCard2() {return getPlayerHoleCard2(3);}		
-	@FXML
+	
 	public String getPlayer3HoleCard2Colour() {return getPlayerHoleCard2Colour(3);}	
 	
-	@FXML
+	
 	public String getPlayer4Name() {return getPlayerName(4);}
-	@FXML
+	
 	public String getPlayer4Chips() {return getPlayerChips(4);}
-	@FXML
+	
 	public String getPlayer4HoleCard1() {return getPlayerHoleCard1(4);}	
-	@FXML
+	
 	public String getPlayer4HoleCard1Colour() {return getPlayerHoleCard1Colour(4);}	
-	@FXML
+	
 	public String getPlayer4HoleCard2() {return getPlayerHoleCard2(4);}		
-	@FXML
+	
 	public String getPlayer4HoleCard2Colour() {return getPlayerHoleCard2Colour(4);}	
 	
-	@FXML
+	
 	public String getPlayer5Name() {return getPlayerName(5);}
-	@FXML
+	
 	public String getPlayer5Chips() {return getPlayerChips(5);}
-	@FXML
+	
 	public String getPlayer5HoleCard1() {return getPlayerHoleCard1(5);}	
-	@FXML
+	
 	public String getPlayer5HoleCard1Colour() {return getPlayerHoleCard1Colour(5);}	
-	@FXML
+	
 	public String getPlayer5HoleCard2() {return getPlayerHoleCard2(5);}		
-	@FXML
+	
 	public String getPlayer5HoleCard2Colour() {return getPlayerHoleCard2Colour(5);}	
 	
-	@FXML
+	
 	public String getPlayer6Name() {return getPlayerName(6);}
-	@FXML
+	
 	public String getPlayer6Chips() {return getPlayerChips(6);}
-	@FXML
+	
 	public String getPlayer6HoleCard1() {return getPlayerHoleCard1(6);}	
-	@FXML
+	
 	public String getPlayer6HoleCard1Colour() {return getPlayerHoleCard1Colour(6);}	
-	@FXML
-	public String getPlayer6HoleCard2() {return getPlayerHoleCard2(6);}		
-	@FXML
+
+    
+
+	private final StringProperty player6HoleCard2Property = new SimpleStringProperty(Integer.toString(actionNumber));
+	
+    public StringProperty player6HoleCard2Property()
+    {
+        return player6HoleCard2Property;
+    }
+	
+	public String getPlayer6HoleCard2() {return player6HoleCard2Property.get();}		
+	
 	public String getPlayer6HoleCard2Colour() {return getPlayerHoleCard2Colour(6);}	
 	
-	public PokerHandReviewerController() {
+    public void setPlayer6HoleCard2(String textValue)
+    {
+        this.player6HoleCard2Property.set(textValue);
+    }
+    
+   
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources)
+    {
 		System.out.println(System.getProperty("user.dir"));
 		File file = new File("C:\\Users\\Leon\\eclipse-workspace\\Poker\\PokerHandParser\\src\\SinglePokerHand.txt"); 
 	  
@@ -126,14 +155,15 @@ public class PokerHandReviewerController {
 			catch(Exception e1) {e1.printStackTrace();}
 		}
 		
-		
-	}
-
+		player2 = new UIPlayer(hand.getPlayer(2));
+    }
 
 	
 	
 	public void next(ActionEvent event) {
-		
+		actionNumber++;
+		setPlayer6HoleCard2(Integer.toString(actionNumber));
+		System.out.println(actionNumber);
 	}
 	
 	public void previous(ActionEvent event) {
@@ -150,7 +180,7 @@ public class PokerHandReviewerController {
 	}
 	public String getPlayerChips(int pSeatNumber) {
 		if(hand != null && hand.getPlayer(pSeatNumber) != null) {
-			return hand.getPlayer(pSeatNumber).getStartingChips().toString();
+			return hand.getPlayer(pSeatNumber).getChipCountAt(actionNumber).toString();
 		} else {
 			return null;
 		}

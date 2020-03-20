@@ -31,8 +31,11 @@ import javafx.scene.control.Label;
 
 public class PokerHandReviewerController implements Initializable {
 	private Hand hand = null;
+
 	
 	private int actionSeq = 0;
+
+	private UIPot pot = new UIPot();
 	
 	private UIPlayer  player1;
 	private UIPlayer  player2;
@@ -46,6 +49,8 @@ public class PokerHandReviewerController implements Initializable {
 	private UICard	boardCard3 = new UICard();
 	private UICard	boardCard4 = new UICard();
 	private UICard	boardCard5 = new UICard();
+	
+	public final UIPot getPot() { return pot; }
 	
 	public final UIPlayer getPlayer1() { return player1; }
 	public final UIPlayer getPlayer2() { return player2; }

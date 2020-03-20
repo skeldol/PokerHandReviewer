@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.pokersimples.bo.Card;
+import com.pokersimples.bo.Fold;
 import com.pokersimples.bo.Player;
 import com.pokersimples.bo.PlayerAction;
 
@@ -22,22 +23,22 @@ public class UIPlayer {
 
 	// The last played action for the player
 	private PlayerAction playedAction = null;
+	private UICard holeCard1;
+	private UICard holeCard2;
+	
+	public UICard getHoleCard1() { return holeCard1; }
+	public UICard getHoleCard2() { return holeCard2; }
 
+	
 	private final StringProperty name = new SimpleStringProperty("Empty");
 	private final StringProperty currentChipCount = new SimpleStringProperty("chips");
     private final StringProperty action = new SimpleStringProperty("action");
-	private final StringProperty holeCard1 = new SimpleStringProperty();
-	private final StringProperty holeCard1Colour = new SimpleStringProperty();
-	private final StringProperty holeCard2 = new SimpleStringProperty();
-	private final StringProperty holeCard2Colour = new SimpleStringProperty();
+
 	  
 	public StringProperty  nameProperty() { return name;}
 	public StringProperty  currentChipCountProperty() { return currentChipCount;}
 	public StringProperty  actionProperty() { return action;}
-	public StringProperty  holeCard1Property() { return holeCard1;}
-	public StringProperty  holeCard1ColourProperty() { return holeCard1Colour;}
-	public StringProperty  holeCard2Property() { return holeCard2;}
-	public StringProperty  holeCard2ColourProperty() { return holeCard2Colour ;}
+
 	 
 	private String getCardColour(Card pCard) {
 		if(pCard != null) {
@@ -62,22 +63,12 @@ public class UIPlayer {
 	
 	public UIPlayer(Player pPlayer) {
 		if(pPlayer != null) {
-			startingChips = pPlayer.getStartingChips().toString();
+			startingChips = pPlayer.getChipsAfterAnte().toString();
 			setSeatNumber(pPlayer.getSeatNumber());
 			setName(pPlayer.getPlayerName());
 			setCurrentChipCount(pPlayer.getStartingChips().toString());
-			if(pPlayer.getHoleCard1() != null) {
-				setHoleCard1(pPlayer.getHoleCard1().toString()); 			
-			} else {
-				setHoleCard1("?");
-			}
-			setHoleCard1Colour(getCardColour(pPlayer.getHoleCard1()));
-			if(pPlayer.getHoleCard2() != null) {
-				setHoleCard2(pPlayer.getHoleCard2().toString()); 			
-			} else {
-				setHoleCard2("?");
-			}
-			setHoleCard2Colour(getCardColour(pPlayer.getHoleCard2()));
+			holeCard1 = new UICard(pPlayer.getHoleCard1());
+			holeCard2 = new UICard(pPlayer.getHoleCard2());
 		}
 
 	}
@@ -101,35 +92,19 @@ public class UIPlayer {
 	public void setAction(String action) {
 		this.action.set(action);
 	}
-	public String getHoleCard1() {
-		return holeCard1.get();
-	}
-	public void setHoleCard1(String holeCard1) {
-		this.holeCard1.set(holeCard1);
-	}
-	public String getHoleCard1Colour() {
-		return holeCard1Colour.get();
-	}
-	public void setHoleCard1Colour(String holeCard1Colour) {
-		this.holeCard1Colour.set(holeCard1Colour);
-	}
-	public String getHoleCard2() {
-		return holeCard2.get();
-	}
-	public void setHoleCard2(String holeCard2) {
-		this.holeCard2.set(holeCard2);
-	}
-	public String getHoleCard2Colour() {
-		return holeCard2Colour.get();
-	}
-	public void setHoleCard2Colour(String holeCard2Colour) {
-		this.holeCard2Colour.set(holeCard2Colour);
-	}
+
 	
 	
 	public void update(PlayerAction action) {
 		setCurrentChipCount(action.getChipCount().toString());
 		setAction(action.getActionName());
+		if(action instanceof Fold) {
+			getHoleCard1().setVisible("false");
+			getHoleCard2().setVisible("false");	
+		} else {
+			getHoleCard1().setVisible("true");
+			getHoleCard2().setVisible("true");	
+		}
 		playedAction = action;
 	}
 	
@@ -138,8 +113,10 @@ public class UIPlayer {
 		if(playedAction != null && playedAction.lastPlayerAction() != null) {
 			update(playedAction.lastPlayerAction()) ;			
 		} else  {
-			setCurrentChipCount(playedAction.getPlayer().getStartingChips().toString());
+			setCurrentChipCount(playedAction.getPlayer().getChipsAfterAnte().toString());
 			setAction("Initial");
+			getHoleCard1().setVisible("true");
+			getHoleCard2().setVisible("true");	
 		}
 	}
 }

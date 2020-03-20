@@ -18,8 +18,8 @@
          <children>
             <Pane layoutX="25.0" layoutY="14.0" prefHeight="77.0" prefWidth="151.0">
                <children>
-                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player1.holeCard1Colour}" styleClass="card" text="${controller.player1.holeCard1}" />
-                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player1.holeCard2Colour}" styleClass="card" text="${controller.player.holeCard2}" />
+                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player1.holeCard1.colour}" styleClass="card" text="${controller.player1.holeCard1.card}" visible="${controller.player1.holeCard1.visible}" />
+                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player1.holeCard2.colour}" styleClass="card" text="${controller.player.holeCard2.card}" visible="${controller.player1.holeCard2.visible}" />
                </children>
             </Pane>
             <VBox layoutX="31.0" layoutY="100.0" prefHeight="47.0" prefWidth="140.0" styleClass="playervbox">
@@ -35,8 +35,8 @@
          <children>
             <Pane layoutX="25.0" layoutY="14.0" prefHeight="77.0" prefWidth="151.0">
                <children>
-                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player2.holeCard1Colour}" styleClass="card" text="${controller.player2.holeCard1}" />
-                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player2.holeCard2Colour}" styleClass="card" text="${controller.player2.holeCard2}" />
+                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player2.holeCard1.colour}" styleClass="card" text="${controller.player2.holeCard1.card}" visible="${controller.player2.holeCard1.visible}" />
+                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player2.holeCard2.colour}" styleClass="card" text="${controller.player2.holeCard2.card}" visible="${controller.player2.holeCard2.visible}" />
                </children>
             </Pane>
             <VBox layoutX="31.0" layoutY="100.0" prefHeight="47.0" prefWidth="140.0" styleClass="playervbox">
@@ -52,8 +52,8 @@
          <children>
             <Pane layoutX="25.0" layoutY="14.0" prefHeight="77.0" prefWidth="151.0">
                <children>
-                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player3.holeCard1Colour}" styleClass="card" text="${controller.player3.holeCard1}" />
-                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player3.holeCard2Colour}" styleClass="card" text="${controller.player3.holeCard2}" />
+                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player3.holeCard1.colour}" styleClass="card" text="${controller.player3.holeCard1.card}" visible="${controller.player3.holeCard1.visible}" />
+                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player3.holeCard2.colour}" styleClass="card" text="${controller.player3.holeCard2.card}" visible="${controller.player3.holeCard2.visible}" />
                </children>
             </Pane>
             <VBox layoutX="31.0" layoutY="100.0" prefHeight="47.0" prefWidth="140.0" styleClass="playervbox">
@@ -69,8 +69,8 @@
          <children>
             <Pane layoutX="25.0" layoutY="14.0" prefHeight="77.0" prefWidth="151.0">
                <children>
-                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player6.holeCard1Colour}" styleClass="card" text="${controller.player6.holeCard1}" />
-                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player6.holeCard2Colour}" styleClass="card" text="${controller.player6.holeCard2}" />
+                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player6.holeCard1.colour}" styleClass="card" text="${controller.player6.holeCard1.card}" visible="${controller.player6.holeCard1.visible}" />
+                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player6.holeCard2.colour}" styleClass="card" text="${controller.player6.holeCard2.card}" visible="${controller.player6.holeCard2.visible}" />
                </children>
             </Pane>
             <VBox layoutX="31.0" layoutY="100.0" prefHeight="47.0" prefWidth="140.0" styleClass="playervbox">
@@ -86,8 +86,8 @@
          <children>
             <Pane layoutX="25.0" layoutY="14.0" prefHeight="77.0" prefWidth="151.0">
                <children>
-                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player5.holeCard1Colour}" styleClass="card" text="${controller.player5.holeCard1}" visible="true" />
-                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player5.holeCard2Colour}" styleClass="card" text="${controller.player5.holeCard2}" />
+                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player5.holeCard1.colour}" styleClass="card" text="${controller.player5.holeCard1.card}" visible="${controller.player5.holeCard1.visible}" />
+                  <Label layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player5.holeCard2.colour}" styleClass="card" text="${controller.player5.holeCard2.card}" visible="${controller.player5.holeCard2.visible}" />
                </children>
             </Pane>
             <VBox layoutX="31.0" layoutY="100.0" prefHeight="47.0" prefWidth="140.0" styleClass="playervbox">
@@ -103,8 +103,8 @@
          <children>
             <Pane layoutX="25.0" layoutY="14.0" prefHeight="77.0" prefWidth="151.0">
                <children>
-                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player4.holeCard1Colour}" styleClass="card" text="${controller.player4.holeCard1}" />
-                  <Label fx:id="lblLabel" layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player4.holeCard2Colour}" styleClass="card" text="${controller.player4.holeCard2}" />
+                  <Label layoutX="8.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player4.holeCard1.colour}" styleClass="card" text="${controller.player4.holeCard1.card}" visible="${controller.player4.holeCard1.visible}" />
+                  <Label fx:id="lblLabel" layoutX="79.0" layoutY="4.0" prefHeight="69.0" prefWidth="61.0" style="${controller.player4.holeCard2.colour}" styleClass="card" text="${controller.player4.holeCard2.card}" visible="${controller.player4.holeCard2.visible}" />
                </children>
             </Pane>
             <VBox layoutX="31.0" layoutY="100.0" prefHeight="47.0" prefWidth="140.0" styleClass="playervbox">
@@ -125,15 +125,19 @@
             <Label prefHeight="69.0" prefWidth="61.0" style="${controller.player2HoleCard2Colour}" styleClass="card" text="${controller.boardCard5.card}" />
          </children>
       </HBox>
-      <Label layoutX="146.0" layoutY="340.0" prefHeight="17.0" prefWidth="136.0" text="${controller.player1Chips}" textAlignment="JUSTIFY" />
-      <Label layoutX="463.0" layoutY="349.0" prefHeight="17.0" prefWidth="136.0" text="${controller.player1Chips}" textAlignment="JUSTIFY" />
-      <Label layoutX="777.0" layoutY="341.0" prefHeight="17.0" prefWidth="136.0" text="${controller.player1Chips}" textAlignment="JUSTIFY" />
-      <Label layoutX="748.0" layoutY="183.0" prefHeight="17.0" prefWidth="136.0" text="${controller.player1Chips}" textAlignment="JUSTIFY" />
-      <Label layoutX="449.0" layoutY="175.0" prefHeight="17.0" prefWidth="136.0" text="${controller.player1Chips}" textAlignment="JUSTIFY" />
-      <Label layoutX="449.0" layoutY="315.0" prefHeight="31.0" prefWidth="136.0" text="${controller.player1Chips}" textAlignment="JUSTIFY">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
+      <VBox layoutX="467.0" layoutY="306.0" prefHeight="62.0" prefWidth="100.0" styleClass="potvbox" >
+         <children>
+            <Label prefHeight="17.0" prefWidth="100.0" text="POT">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="17.0" prefWidth="100.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

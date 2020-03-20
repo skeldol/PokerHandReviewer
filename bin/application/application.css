@@ -4,6 +4,11 @@
 	-fx-border-color: black;
 }
 
+.potvbox {
+	-fx-background-color: white;
+	-fx-border-color: black;
+}
+
 .label {
 		-fx-text-alignment: center
 }

@@ -125,18 +125,36 @@
             <Label prefHeight="69.0" prefWidth="61.0" style="${controller.player2HoleCard2Colour}" styleClass="card" text="${controller.boardCard5.card}" />
          </children>
       </HBox>
-      <VBox layoutX="467.0" layoutY="306.0" prefHeight="62.0" prefWidth="100.0" styleClass="potvbox" >
+      <VBox layoutX="444.0" layoutY="306.0" prefHeight="62.0" prefWidth="151.0" styleClass="potvbox">
          <children>
-            <Label prefHeight="17.0" prefWidth="100.0" text="POT">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label prefHeight="17.0" prefWidth="100.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
+            <HBox prefHeight="36.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="37.0" text="Pot:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="100.0" text="${controller.pot.total}">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="25.0" prefWidth="117.0">
+               <children>
+                  <Label prefHeight="27.0" prefWidth="83.0" text="Pot odds:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="100.0" text="${controller.pot.potOdds}">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </children>

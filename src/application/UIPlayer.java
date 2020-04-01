@@ -63,7 +63,7 @@ public class UIPlayer {
 	
 	public UIPlayer(Player pPlayer) {
 		if(pPlayer != null) {
-			startingChips = pPlayer.getChipsAfterAnte().toString();
+			startingChips = pPlayer.getStartingChips().toString();
 			setSeatNumber(pPlayer.getSeatNumber());
 			setName(pPlayer.getPlayerName());
 			setCurrentChipCount(pPlayer.getStartingChips().toString());
@@ -113,7 +113,7 @@ public class UIPlayer {
 		if(playedAction != null && playedAction.lastPlayerAction() != null) {
 			update(playedAction.lastPlayerAction()) ;			
 		} else  {
-			setCurrentChipCount(playedAction.getPlayer().getChipsAfterAnte().toString());
+			setCurrentChipCount(playedAction.getPlayer().getStartingChips().toString());
 			setAction("Initial");
 			getHoleCard1().setVisible("true");
 			getHoleCard2().setVisible("true");	

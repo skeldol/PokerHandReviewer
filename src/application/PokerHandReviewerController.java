@@ -115,6 +115,7 @@ public class PokerHandReviewerController implements Initializable {
 		Action action = hand.getAction(actionSeq++);
 		if(action instanceof PlayerAction) {
 			PlayerAction playerAction = (PlayerAction) action;
+			pot.setPotOdds(playerAction.getPotOdds().toString());
 			if(playerAction.getPlayer().getSeatNumber() == getPlayer1().getSeatNumber()) {
 				getPlayer1().update(playerAction);
 				
@@ -148,6 +149,9 @@ public class PokerHandReviewerController implements Initializable {
 			}
 		}
 		
+		pot.setTotal(action.getPot().toString());
+
+		
 		System.out.println(actionSeq);
 	}
 	
@@ -155,6 +159,7 @@ public class PokerHandReviewerController implements Initializable {
 		Action action = hand.getAction(--actionSeq);
 		if(action instanceof PlayerAction) {
 			PlayerAction playerAction = (PlayerAction) action;
+			pot.setPotOdds(playerAction.getPotOdds().toString());
 			if(playerAction.getPlayer().getSeatNumber() == getPlayer1().getSeatNumber()) {
 				getPlayer1().undo();
 				
@@ -187,7 +192,7 @@ public class PokerHandReviewerController implements Initializable {
 				boardCard5.setCard(dealerAction.getBoardCard(0).toString());
 			}
 		}
-		
+		pot.setTotal(action.getPot().toString());
 		System.out.println(actionSeq);
 	}
 	

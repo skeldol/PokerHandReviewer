@@ -118,11 +118,11 @@
       </Pane>
       <HBox layoutX="361.0" layoutY="226.0" prefHeight="89.0" prefWidth="394.0">
          <children>
-            <Label prefHeight="69.0" prefWidth="61.0" style="${controller.player2HoleCard2Colour}" styleClass="card" text="${controller.boardCard1.card}" />
-            <Label prefHeight="69.0" prefWidth="61.0" style="${controller.player2HoleCard2Colour}" styleClass="card" text="${controller.boardCard2.card}" />
-            <Label prefHeight="69.0" prefWidth="61.0" style="${controller.player2HoleCard2Colour}" styleClass="card" text="${controller.boardCard3.card}" />
-            <Label prefHeight="69.0" prefWidth="61.0" style="${controller.player2HoleCard2Colour}" styleClass="card" text="${controller.boardCard4.card}" />
-            <Label prefHeight="69.0" prefWidth="61.0" style="${controller.player2HoleCard2Colour}" styleClass="card" text="${controller.boardCard5.card}" />
+            <Label prefHeight="69.0" prefWidth="61.0" style="${controller.board.boardCard1.colour}" styleClass="card" text="${controller.board.boardCard2.card}" />
+            <Label prefHeight="69.0" prefWidth="61.0" style="${controller.board.boardCard2.colour}" styleClass="card" text="${controller.board.boardCard2.card}" />
+            <Label prefHeight="69.0" prefWidth="61.0" style="${controller.board.boardCard3.colour}" styleClass="card" text="${controller.board.boardCard3.card}" />
+            <Label prefHeight="69.0" prefWidth="61.0" style="${controller.board.boardCard4.colour}" styleClass="card" text="${controller.board.boardCard4.card}" />
+            <Label prefHeight="69.0" prefWidth="61.0" style="${controller.board.boardCard5.colour}" styleClass="card" text="${controller.board.boardCard5.card}" />
          </children>
       </HBox>
       <VBox layoutX="444.0" layoutY="306.0" prefHeight="62.0" prefWidth="151.0" styleClass="potvbox">

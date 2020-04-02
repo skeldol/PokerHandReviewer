@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import com.pokersimples.bo.Action;
+import com.pokersimples.bo.BigBlind;
 import com.pokersimples.bo.DealerAction;
 import com.pokersimples.bo.Flop;
 import com.pokersimples.bo.Hand;
@@ -44,13 +45,10 @@ public class PokerHandReviewerController implements Initializable {
 	private UIPlayer  player5;
 	private UIPlayer  player6;
 
-	private UICard	boardCard1 = new UICard();
-	private UICard	boardCard2 = new UICard();
-	private UICard	boardCard3 = new UICard();
-	private UICard	boardCard4 = new UICard();
-	private UICard	boardCard5 = new UICard();
+	private UIBoard	board = new UIBoard();
 	
 	public final UIPot getPot() { return pot; }
+	public final UIBoard getBoard() { return board; }
 	
 	public final UIPlayer getPlayer1() { return player1; }
 	public final UIPlayer getPlayer2() { return player2; }
@@ -58,12 +56,8 @@ public class PokerHandReviewerController implements Initializable {
 	public final UIPlayer getPlayer4() { return player4; }
 	public final UIPlayer getPlayer5() { return player5; }
 	public final UIPlayer getPlayer6() { return player6; }
-	
-	public final UICard getBoardCard1() { return boardCard1; }
-	public final UICard getBoardCard2() { return boardCard2; }
-	public final UICard getBoardCard3() { return boardCard3; }
-	public final UICard getBoardCard4() { return boardCard4; }
-	public final UICard getBoardCard5() { return boardCard5; }
+
+
     
     
     public PokerHandReviewerController() {
@@ -101,6 +95,10 @@ public class PokerHandReviewerController implements Initializable {
 		player4 = new UIPlayer(hand.getPlayer(4));
 		player5 = new UIPlayer(hand.getPlayer(5));
 		player6 = new UIPlayer(hand.getPlayer(6));
+		
+		//Run through the actions til the BigBlind is posted.
+		while(!(updateScreen(actionSeq++) instanceof BigBlind));
+		
     }
 
     @Override
@@ -113,6 +111,63 @@ public class PokerHandReviewerController implements Initializable {
 	
 	public void next(ActionEvent event) {
 		Action action = hand.getAction(actionSeq++);
+		if(action instanceof PlayerAction) {
+			PlayerAction playerAction = (PlayerAction) action;
+			pot.setPotOdds(playerAction.getPotOdds().toString());
+			UIPlayer uiPlayer = getPlayerForAction(playerAction);
+			uiPlayer.update(playerAction);
+		} else if(action instanceof DealerAction) {
+			DealerAction dealerAction = (DealerAction) action;
+			board.update(dealerAction);
+		}
+		
+		pot.setTotal(action.getPot().toString());
+		System.out.println(actionSeq);
+	}
+	
+	public void previous(ActionEvent event) {
+		Action action = hand.getAction(--actionSeq);
+		if(action instanceof PlayerAction) {
+			PlayerAction playerAction = (PlayerAction) action;
+			pot.setPotOdds(playerAction.getPotOdds().toString());
+			UIPlayer uiPlayer = getPlayerForAction(playerAction);
+			uiPlayer.undo();
+		} else if(action instanceof DealerAction) {
+			DealerAction dealerAction = (DealerAction) action;
+			board.undo(dealerAction);
+		}
+		
+		pot.setTotal(action.getPot().toString());
+		System.out.println(actionSeq);
+
+	}
+	
+	private UIPlayer getPlayerForAction(PlayerAction playerAction) {
+		UIPlayer playerUI = null;
+		if(playerAction.getPlayer().getSeatNumber() == getPlayer1().getSeatNumber()) {
+			playerUI = getPlayer1();
+			
+		} else if(playerAction.getPlayer().getSeatNumber() == getPlayer2().getSeatNumber()) {
+			playerUI = getPlayer2();
+			
+		} else if(playerAction.getPlayer().getSeatNumber() == getPlayer3().getSeatNumber()) {
+			playerUI = getPlayer3();
+			
+		} else if(playerAction.getPlayer().getSeatNumber() == getPlayer4().getSeatNumber()) {
+			playerUI = getPlayer4();
+			
+		} else if(playerAction.getPlayer().getSeatNumber() == getPlayer5().getSeatNumber()) {
+			playerUI = getPlayer5();
+			
+		} else if(playerAction.getPlayer().getSeatNumber() == getPlayer6().getSeatNumber()) {
+			playerUI = getPlayer6();
+		}
+		
+		return playerUI;
+	}
+	
+	private Action updateScreen(int pActionSeq) {
+		Action action = hand.getAction(pActionSeq);
 		if(action instanceof PlayerAction) {
 			PlayerAction playerAction = (PlayerAction) action;
 			pot.setPotOdds(playerAction.getPotOdds().toString());
@@ -136,66 +191,13 @@ public class PokerHandReviewerController implements Initializable {
 			}
 		} else if(action instanceof DealerAction) {
 			DealerAction dealerAction = (DealerAction) action;
-			if(dealerAction instanceof Flop) {
-				boardCard1.setCard(dealerAction.getBoardCard(0).toString());
-				boardCard2.setCard(dealerAction.getBoardCard(1).toString());
-				boardCard3.setCard(dealerAction.getBoardCard(2).toString());
-				
-			} else if(dealerAction instanceof Turn) {
-				boardCard4.setCard(dealerAction.getBoardCard(0).toString());
-				
-			} else if(dealerAction instanceof River) {
-				boardCard5.setCard(dealerAction.getBoardCard(0).toString());
-			}
+			
 		}
 		
 		pot.setTotal(action.getPot().toString());
+		System.out.println(pActionSeq);
+		return action;
 
-		
-		System.out.println(actionSeq);
 	}
-	
-	public void previous(ActionEvent event) {
-		Action action = hand.getAction(--actionSeq);
-		if(action instanceof PlayerAction) {
-			PlayerAction playerAction = (PlayerAction) action;
-			pot.setPotOdds(playerAction.getPotOdds().toString());
-			if(playerAction.getPlayer().getSeatNumber() == getPlayer1().getSeatNumber()) {
-				getPlayer1().undo();
-				
-			} else if(playerAction.getPlayer().getSeatNumber() == getPlayer2().getSeatNumber()) {
-				getPlayer2().undo();
-				
-			} else if(playerAction.getPlayer().getSeatNumber() == getPlayer3().getSeatNumber()) {
-				getPlayer3().undo();
-				
-			} else if(playerAction.getPlayer().getSeatNumber() == getPlayer4().getSeatNumber()) {
-				getPlayer4().undo();
-				
-			} else if(playerAction.getPlayer().getSeatNumber() == getPlayer5().getSeatNumber()) {
-				getPlayer5().undo();
-				
-			} else if(playerAction.getPlayer().getSeatNumber() == getPlayer6().getSeatNumber()) {
-				getPlayer6().undo();
-			}
-		} else if(action instanceof DealerAction) {
-			DealerAction dealerAction = (DealerAction) action;
-			if(dealerAction instanceof Flop) {
-				boardCard1.setCard(dealerAction.getBoardCard(0).toString());
-				boardCard2.setCard(dealerAction.getBoardCard(1).toString());
-				boardCard3.setCard(dealerAction.getBoardCard(2).toString());
-				
-			} else if(dealerAction instanceof Turn) {
-				boardCard4.setCard(dealerAction.getBoardCard(0).toString());
-				
-			} else if(dealerAction instanceof River) {
-				boardCard5.setCard(dealerAction.getBoardCard(0).toString());
-			}
-		}
-		pot.setTotal(action.getPot().toString());
-		System.out.println(actionSeq);
-	}
-	
-	
 
 }

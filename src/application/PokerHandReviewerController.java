@@ -97,7 +97,18 @@ public class PokerHandReviewerController implements Initializable {
 		player6 = new UIPlayer(hand.getPlayer(6));
 		
 		//Run through the actions til the BigBlind is posted.
-		while(!(updateScreen(actionSeq++) instanceof BigBlind));
+		Action action = null;
+		while(!(action instanceof BigBlind) ) {
+			action = hand.getAction(actionSeq++);
+			if(action instanceof PlayerAction) {
+				PlayerAction playerAction = (PlayerAction) action;
+				pot.setPotOdds(playerAction.getPotOdds().toString());
+				UIPlayer uiPlayer = getPlayerForAction(playerAction);
+				uiPlayer.update(playerAction);
+			} 
+			
+			pot.setTotal(action.getPot().toString());			
+		}
 		
     }
 
@@ -165,39 +176,6 @@ public class PokerHandReviewerController implements Initializable {
 		
 		return playerUI;
 	}
-	
-	private Action updateScreen(int pActionSeq) {
-		Action action = hand.getAction(pActionSeq);
-		if(action instanceof PlayerAction) {
-			PlayerAction playerAction = (PlayerAction) action;
-			pot.setPotOdds(playerAction.getPotOdds().toString());
-			if(playerAction.getPlayer().getSeatNumber() == getPlayer1().getSeatNumber()) {
-				getPlayer1().update(playerAction);
-				
-			} else if(playerAction.getPlayer().getSeatNumber() == getPlayer2().getSeatNumber()) {
-				getPlayer2().update(playerAction);
-				
-			} else if(playerAction.getPlayer().getSeatNumber() == getPlayer3().getSeatNumber()) {
-				getPlayer3().update(playerAction);
-				
-			} else if(playerAction.getPlayer().getSeatNumber() == getPlayer4().getSeatNumber()) {
-				getPlayer4().update(playerAction);
-				
-			} else if(playerAction.getPlayer().getSeatNumber() == getPlayer5().getSeatNumber()) {
-				getPlayer5().update(playerAction);
-				
-			} else if(playerAction.getPlayer().getSeatNumber() == getPlayer6().getSeatNumber()) {
-				getPlayer6().update(playerAction);
-			}
-		} else if(action instanceof DealerAction) {
-			DealerAction dealerAction = (DealerAction) action;
-			
-		}
-		
-		pot.setTotal(action.getPot().toString());
-		System.out.println(pActionSeq);
-		return action;
 
-	}
 
 }

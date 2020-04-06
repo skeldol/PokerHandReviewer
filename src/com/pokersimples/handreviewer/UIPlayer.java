@@ -1,4 +1,4 @@
-package application;
+package com.pokersimples.handreviewer;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

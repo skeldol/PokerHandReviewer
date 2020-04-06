@@ -1,4 +1,4 @@
-package application;
+package com.pokersimples.handreviewer;
 	
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +13,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 
-			Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("PokerHandReviewer.fxml"));
+			Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(".\\com\\pokersimples\\handreviewer\\PokerHandReviewer.fxml"));
 
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

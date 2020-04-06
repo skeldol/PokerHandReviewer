@@ -1,4 +1,4 @@
-package application;
+package com.pokersimples.handreviewer;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,7 +17,7 @@ import com.pokersimples.bo.Player;
 import com.pokersimples.bo.PlayerAction;
 import com.pokersimples.bo.River;
 import com.pokersimples.bo.Turn;
-import com.pokersimples.parser.pokerstars.PokerStarsParser;
+import com.pokersimples.parser.handhistory.pokerstars.PokerStarsParser;
 
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;

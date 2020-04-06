@@ -1,4 +1,4 @@
-package application;
+package com.pokersimples.handreviewer;
 
 import com.pokersimples.bo.DealerAction;
 import com.pokersimples.bo.Flop;

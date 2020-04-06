@@ -1,4 +1,4 @@
-package application;
+package com.pokersimples.handreviewer;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
